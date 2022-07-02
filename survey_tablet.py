@@ -9,7 +9,7 @@ def asksurvey():
         savedata(hole_id, depth, azimuth, dip)
 
 def savedata(hole_id, depth, azimuth, dip):
-	con = sqlite3.connect('logging_database')
+	con = sqlite3.connect('database_name.db')
 	cur = con.cursor()
 	myList = [hole_id.get(), depth.get(), azimuth.get(), dip.get()]
 	cur.execute('INSERT INTO Survey(HoleID, Depth, Azimuth, Dip) VALUES (?,?,?,?)', myList)
