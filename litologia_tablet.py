@@ -37,56 +37,56 @@ def askstd():
                 std(hole_id, std_sample_id, std_code)
 		
 def saverockdata(hole_id, from_litho, to_litho, rock, color_sel, modifier, rock_desc, litho_unit):
-	con = sqlite3.connect('principal_mine', timeout=3)
+	con = sqlite3.connect('database_name.db', timeout=3)
 	cur = con.cursor()
 	myrock = [hole_id.get(), from_litho.get(), to_litho.get(), selected_rock, selected_color, modifier.get(), rock_desc.get(), litho_unit.get()]
 	cur.execute('INSERT INTO Lithology(HoleID, From_l, To_l, Rock_code, Color, Modifier, Description, Litho_Unit) VALUES (?,?,?,?,?,?,?,?)', myrock)
 	con.commit()
 
 def savestructure(hole_id, s_depth, angle, s_type):
-	con = sqlite3.connect('principal_mine')
+	con = sqlite3.connect('database_name.db')
 	cur = con.cursor()
 	mystructure = [hole_id.get(), s_depth.get(), angle.get(), s_type.get()]
 	cur.execute('INSERT INTO Structures(HoleID, Depth, Angle, Type) VALUES (?,?,?,?)', mystructure)
 	con.commit()	
 
 def s1(hole_id, sample1, from1, to1):
-	con = sqlite3.connect('principal_mine')
+	con = sqlite3.connect('database_name.db')
 	cur = con.cursor()
 	samp1 = [hole_id.get(), sample1.get(), from1.get(), to1.get()]
 	cur.execute('INSERT INTO Sampling(HoleID, Sample_ID, Sample_From, Sample_To) Values (?,?,?,?)', samp1)
 	con.commit()
 
 def s2(hole_id, sample2, from2, to2):
-	con = sqlite3.connect('principal_mine')
+	con = sqlite3.connect('database_name.db')
 	cur = con.cursor()
 	samp2 = [hole_id.get(), sample2.get(), from2.get(), to2.get()]
 	cur.execute('INSERT INTO Sampling(HoleID, Sample_ID, Sample_From, Sample_To) Values (?,?,?,?)', samp2)
 	con.commit()
 
 def s3(hole_id, sample3, from3, to3):
-	con = sqlite3.connect('principal_mine')
+	con = sqlite3.connect('database_name.db')
 	cur = con.cursor()
 	samp3 = [hole_id.get(), sample3.get(), from3.get(), to3.get()]
 	cur.execute('INSERT INTO Sampling(HoleID, Sample_ID, Sample_From, Sample_To) Values (?,?,?,?)', samp3)
 	con.commit()
 
 def s4(hole_id, sample4, from4, to4):
-	con = sqlite3.connect('principal_mine')
+	con = sqlite3.connect('database_name.db')
 	cur = con.cursor()
 	samp4 = [hole_id.get(), sample4.get(), from4.get(), to4.get()]
 	cur.execute('INSERT INTO Sampling(HoleID, Sample_ID, Sample_From, Sample_To) Values (?,?,?,?)', samp4)
 	con.commit()
 
 def quality(hole_id, original_sample, duplicate_sample):
-	con = sqlite3.connect('principal_mine')
+	con = sqlite3.connect('database_name.db')
 	cur = con.cursor()
 	quality = [hole_id.get(), orig_sample.get(), qc_sample.get()]
 	cur.execute('INSERT INTO QAQC(HoleID, Original_sample, Duplicate) Values (?,?,?)', quality)
 	con.commit()
 
 def std(hole_id, std_sample, std_code):
-        con = sqlite3.connect('principal_mine')
+        con = sqlite3.connect('database_name.db')
         cur = con.cursor()
         std = [hole_id.get(), std_sample_id.get(), std_code.get()]
         cur.execute('INSERT INTO Standards(HoleID, Sample_ID, Std_type) Values (?,?,?)', std)
@@ -128,8 +128,7 @@ root.grid()
 
 #rock types for the listbox
 rock_codes = ('rock1', 'rock2', 'rock3', 'rock4','rock5', 'rock6', 'rock7', 'rock8')
-color_codes = (' ', 'white', 'beige', 'light tan', 'tan', 'light brown', 'brown', 'dark brown', 'light grey', 'grey', 'dark grey', 
-			'black', 'green', 'orange', 'red')
+color_codes = (' ', 'white', 'beige', 'red')
 
 
 # Variables
@@ -178,7 +177,7 @@ def colorselect (*args):
 
 save_rock_press = None
 def save (hole_id, from_litho, to_litho, rock, color_sel, modifier, rock_desc):
-	con = sqlite3.connect('principal_mine', timeout=3)
+	con = sqlite3.connect('database_name.db', timeout=3)
 	cur = con.cursor()
 	myrock = [hole_id.get(), from_litho.get(), to_litho.get(), selected_rock, selected_color, modifier.get(), rock_desc.get()]
 	cur.execute('INSERT INTO Lithology(HoleID, From_l, To_l, Rock_code, Color, Modifier, Description) VALUES (?,?,?,?,?,?,?)', myrock)

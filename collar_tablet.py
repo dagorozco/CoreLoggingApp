@@ -8,7 +8,7 @@ def askcollar():
                 savedata(hole_id, eoh, zone, minesite, prop, units, h_type, date, selected_loggeo, selected_plangeo, log_type, recovery)
 
 def savedata(hole_id, eoh, zone, minesite, prop, units, h_type, date, logged, planned, log_type, recovery):
-	con = sqlite3.connect('principal_mine')
+	con = sqlite3.connect('database_name.db')
 	cur = con.cursor()
 	myList = [hole_id.get(), eoh.get(), zone.get(), minesite.get(), prop.get(), units.get(), h_type.get(), date.get(), selected_loggeo, selected_plangeo, log_type.get(), recovery.get()]
 	cur.execute('INSERT INTO Collar(HoleID, EOH, Zone, Minesite, Property, Units, Hole_type, Date, Logger, Planned, LOGTYPE, Recovery) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)', myList)
@@ -31,8 +31,8 @@ frame = Frame()
 frame.grid()
 
 # choices for list
-loggeo_choices = ('SR - Sandra Rodriguez', 'ID - Ian Dasti', 'DO - Dagoberto Orozco', 'BM - Brandon Mijal', 'AS - Ali Salsman')
-plangeo_choices = ('SR - Sandra Rodriguez', 'ID - Ian Dasti', 'DO - Dagoberto Orozco', 'BM - Brandon Mijal', 'AS - Ali Salsman')
+loggeo_choices = ('Geo1', 'Geo2', 'Geo3')
+plangeo_choices = ('Geo1', 'Geo2', 'Geo3')
 
 # Defining the variables
 hole_id = StringVar()

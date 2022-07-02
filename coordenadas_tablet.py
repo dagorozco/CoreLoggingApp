@@ -11,7 +11,7 @@ def askcoord():
 
 
 def savecord(hole_id, coordinate_system, easting, northing, elevation, surveyor, Year, Drill_comp, wgs84_zone, other_system):
-	con = sqlite3.connect('principal_mine')
+	con = sqlite3.connect('database_name.db')
 	cur = con.cursor()
 	mycord = [hole_id.get(), coordinate_system.get(), easting.get(), northing.get(), elevation.get(), surveyor.get(), Year.get(), Drill_comp.get(), wgs84_zone.get(), other_system.get()]
 	cur.execute('INSERT INTO Coordinates(HoleID, Coordinates_system, LocationX, LocationY, LocationZ, LOCCOMP, YEARDRILL, Driller, WGS84_Zone, Other_system) VALUES (?,?,?,?,?,?,?,?,?,?)', mycord)
@@ -76,11 +76,11 @@ east_entry = Entry(root, width=10, textvariable=easting)
 north_entry = Entry(root, width=10, textvariable=northing)
 elevation_entry = Entry(root, width=10, textvariable=elevation)
 surveyor_entry = Entry(root, width=10, textvariable=surveyor)
-surveyor_entry.insert(0, "Imerys")
+surveyor_entry.insert(0, "CompanyName")
 surveyor_entry.config(state='readonly')
 year_entry = Entry(root, width=10, textvariable=Year)
 drill_comp_entry = Entry(root, width=10, textvariable=Drill_comp)
-drill_comp_entry.insert(0, "Imerys")
+drill_comp_entry.insert(0, "CompanyName")
 drill_comp_entry.config(state='readonly')
 
 # Placing the entries onto the window
