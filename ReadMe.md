@@ -9,3 +9,9 @@ In addition to saving time, and adding productivity, also saved the site a certa
 (cost no estimated) since no need to pay for software was needed. To date, after 6 years the tools
 is still being used.
 
+# A preview tool
+
+## Coordinates Window
+
+![This is an image](https://drive.google.com/file/d/1_itnzK-3L4KN0ALBm_AWN_3HipqRxv_B/view?usp=sharing)
+
