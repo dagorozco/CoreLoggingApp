@@ -11,7 +11,7 @@ In addition to saving time, and adding productivity, also saved the site a certa
 (cost no estimated) since no need to pay for software was needed. To date, after 6 years the tools
 is still being used.
 
-# A preview tool
+# Tool Preview
 
 ## Adding a new hole
 
